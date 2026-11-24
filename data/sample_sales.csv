@@ -1,5 +1,744 @@
-name,date,qty_sold
-Napa Extra,2026-11-20,5
-Napa Extra,2026-11-21,6
-Seclo 20mg,2026-11-20,0
-Cough Syrup 100ml,2026-11-20,0
+medicine,batch,sale_date,quantity_sold
+Napa Extra 500mg,B-101,2026-11-23,19
+Napa Extra 500mg,B-101,2026-11-22,19
+Napa Extra 500mg,B-101,2026-11-21,19
+Napa Extra 500mg,B-101,2026-11-20,24
+Napa Extra 500mg,B-101,2026-11-19,19
+Napa Extra 500mg,B-101,2026-11-18,11
+Napa Extra 500mg,B-101,2026-11-17,22
+Napa Extra 500mg,B-101,2026-11-16,18
+Napa Extra 500mg,B-101,2026-11-15,19
+Napa Extra 500mg,B-101,2026-11-14,21
+Napa Extra 500mg,B-101,2026-11-13,21
+Napa Extra 500mg,B-101,2026-11-12,27
+Napa Extra 500mg,B-101,2026-11-11,24
+Napa Extra 500mg,B-101,2026-11-10,21
+Napa Extra 500mg,B-101,2026-11-09,16
+Napa Extra 500mg,B-101,2026-11-08,14
+Napa Extra 500mg,B-101,2026-11-07,21
+Napa Extra 500mg,B-101,2026-11-06,28
+Napa Extra 500mg,B-101,2026-11-05,20
+Napa Extra 500mg,B-101,2026-11-04,19
+Napa Extra 500mg,B-101,2026-11-03,23
+Napa Extra 500mg,B-101,2026-11-02,11
+Napa Extra 500mg,B-101,2026-11-01,18
+Napa Extra 500mg,B-101,2026-10-31,23
+Napa Extra 500mg,B-101,2026-10-30,25
+Napa Extra 500mg,B-101,2026-10-29,19
+Napa Extra 500mg,B-101,2026-10-28,22
+Napa Extra 500mg,B-101,2026-10-27,21
+Napa Extra 500mg,B-101,2026-10-26,25
+Napa Extra 500mg,B-101,2026-10-25,13
+Seclo 20mg,S-220,2026-11-23,2
+Seclo 20mg,S-220,2026-11-22,1
+Seclo 20mg,S-220,2026-11-20,1
+Seclo 20mg,S-220,2026-11-19,1
+Seclo 20mg,S-220,2026-11-18,2
+Seclo 20mg,S-220,2026-11-17,2
+Seclo 20mg,S-220,2026-11-16,1
+Seclo 20mg,S-220,2026-11-15,2
+Seclo 20mg,S-220,2026-11-14,1
+Seclo 20mg,S-220,2026-11-13,1
+Seclo 20mg,S-220,2026-11-12,1
+Seclo 20mg,S-220,2026-11-11,2
+Seclo 20mg,S-220,2026-11-10,2
+Seclo 20mg,S-220,2026-11-09,2
+Seclo 20mg,S-220,2026-11-08,2
+Seclo 20mg,S-220,2026-11-07,2
+Seclo 20mg,S-220,2026-11-06,2
+Seclo 20mg,S-220,2026-11-05,1
+Seclo 20mg,S-220,2026-11-04,1
+Seclo 20mg,S-220,2026-11-03,1
+Seclo 20mg,S-220,2026-11-02,2
+Seclo 20mg,S-220,2026-11-01,1
+Seclo 20mg,S-220,2026-10-31,3
+Seclo 20mg,S-220,2026-10-30,1
+Seclo 20mg,S-220,2026-10-29,1
+Seclo 20mg,S-220,2026-10-28,2
+Seclo 20mg,S-220,2026-10-27,2
+Seclo 20mg,S-220,2026-10-26,2
+Seclo 20mg,S-220,2026-10-25,2
+Cough Syrup 100ml,C-310,2026-11-21,1
+Cough Syrup 100ml,C-310,2026-11-20,1
+Cough Syrup 100ml,C-310,2026-11-19,1
+Cough Syrup 100ml,C-310,2026-11-15,1
+Cough Syrup 100ml,C-310,2026-11-14,1
+Cough Syrup 100ml,C-310,2026-11-09,1
+Cough Syrup 100ml,C-310,2026-11-07,1
+Cough Syrup 100ml,C-310,2026-11-01,1
+Cough Syrup 100ml,C-310,2026-10-29,1
+Cough Syrup 100ml,C-310,2026-10-25,1
+Ace 500mg,S-101,2026-11-23,26
+Ace 500mg,S-101,2026-11-22,16
+Ace 500mg,S-101,2026-11-21,27
+Ace 500mg,S-101,2026-11-20,16
+Ace 500mg,S-101,2026-11-19,32
+Ace 500mg,S-101,2026-11-18,25
+Ace 500mg,S-101,2026-11-17,42
+Ace 500mg,S-101,2026-11-16,27
+Ace 500mg,S-101,2026-11-15,35
+Ace 500mg,S-101,2026-11-14,15
+Ace 500mg,S-101,2026-11-13,24
+Ace 500mg,S-101,2026-11-12,27
+Ace 500mg,S-101,2026-11-11,38
+Ace 500mg,S-101,2026-11-10,12
+Ace 500mg,S-101,2026-11-09,32
+Ace 500mg,S-101,2026-11-08,29
+Ace 500mg,S-101,2026-11-07,37
+Ace 500mg,S-101,2026-11-06,30
+Ace 500mg,S-101,2026-11-05,25
+Ace 500mg,S-101,2026-11-04,21
+Ace 500mg,S-101,2026-11-03,16
+Ace 500mg,S-101,2026-11-02,26
+Ace 500mg,S-101,2026-11-01,24
+Ace 500mg,S-101,2026-10-31,40
+Ace 500mg,S-101,2026-10-30,20
+Ace 500mg,S-101,2026-10-29,27
+Ace 500mg,S-101,2026-10-28,13
+Ace 500mg,S-101,2026-10-27,22
+Ace 500mg,S-101,2026-10-26,27
+Ace 500mg,S-101,2026-10-25,31
+Maxpro 20mg,R-330,2026-11-23,1
+Maxpro 20mg,R-330,2026-11-22,1
+Maxpro 20mg,R-330,2026-11-21,1
+Maxpro 20mg,R-330,2026-11-20,1
+Maxpro 20mg,R-330,2026-11-19,1
+Maxpro 20mg,R-330,2026-11-18,1
+Maxpro 20mg,R-330,2026-11-16,1
+Maxpro 20mg,R-330,2026-11-15,1
+Maxpro 20mg,R-330,2026-11-14,1
+Maxpro 20mg,R-330,2026-11-13,1
+Maxpro 20mg,R-330,2026-11-12,1
+Maxpro 20mg,R-330,2026-11-11,1
+Maxpro 20mg,R-330,2026-11-10,1
+Maxpro 20mg,R-330,2026-11-09,1
+Maxpro 20mg,R-330,2026-11-08,1
+Maxpro 20mg,R-330,2026-11-07,1
+Maxpro 20mg,R-330,2026-11-06,1
+Maxpro 20mg,R-330,2026-11-05,1
+Maxpro 20mg,R-330,2026-11-04,1
+Maxpro 20mg,R-330,2026-11-03,1
+Maxpro 20mg,R-330,2026-11-01,1
+Maxpro 20mg,R-330,2026-10-31,1
+Maxpro 20mg,R-330,2026-10-28,1
+Maxpro 20mg,R-330,2026-10-27,1
+Maxpro 20mg,R-330,2026-10-26,1
+Ciprocin 500mg,S-415,2026-11-23,1
+Ciprocin 500mg,S-415,2026-11-22,1
+Ciprocin 500mg,S-415,2026-11-17,1
+Ciprocin 500mg,S-415,2026-11-15,1
+Ciprocin 500mg,S-415,2026-11-10,1
+Ciprocin 500mg,S-415,2026-11-09,1
+Ciprocin 500mg,S-415,2026-11-07,1
+Ciprocin 500mg,S-415,2026-11-04,1
+Ciprocin 500mg,S-415,2026-11-03,1
+Ciprocin 500mg,S-415,2026-11-02,1
+Ciprocin 500mg,S-415,2026-11-01,1
+Ciprocin 500mg,S-415,2026-10-31,1
+Ciprocin 500mg,S-415,2026-10-25,1
+Fexo 120mg,I-210,2026-11-23,2
+Fexo 120mg,I-210,2026-11-22,2
+Fexo 120mg,I-210,2026-11-21,1
+Fexo 120mg,I-210,2026-11-20,1
+Fexo 120mg,I-210,2026-11-19,2
+Fexo 120mg,I-210,2026-11-18,2
+Fexo 120mg,I-210,2026-11-17,3
+Fexo 120mg,I-210,2026-11-16,2
+Fexo 120mg,I-210,2026-11-15,2
+Fexo 120mg,I-210,2026-11-14,3
+Fexo 120mg,I-210,2026-11-13,2
+Fexo 120mg,I-210,2026-11-12,2
+Fexo 120mg,I-210,2026-11-11,2
+Fexo 120mg,I-210,2026-11-10,2
+Fexo 120mg,I-210,2026-11-09,1
+Fexo 120mg,I-210,2026-11-08,2
+Fexo 120mg,I-210,2026-11-07,2
+Fexo 120mg,I-210,2026-11-06,2
+Fexo 120mg,I-210,2026-11-05,2
+Fexo 120mg,I-210,2026-11-04,2
+Fexo 120mg,I-210,2026-11-03,3
+Fexo 120mg,I-210,2026-11-02,2
+Fexo 120mg,I-210,2026-11-01,2
+Fexo 120mg,I-210,2026-10-31,2
+Fexo 120mg,I-210,2026-10-30,2
+Fexo 120mg,I-210,2026-10-29,1
+Fexo 120mg,I-210,2026-10-28,2
+Fexo 120mg,I-210,2026-10-27,2
+Fexo 120mg,I-210,2026-10-26,3
+Fexo 120mg,I-210,2026-10-25,3
+Alatrol 10mg,S-512,2026-11-15,1
+Alatrol 10mg,S-512,2026-11-03,1
+Alatrol 10mg,S-512,2026-11-02,1
+Alatrol 10mg,S-512,2026-10-27,1
+Alatrol 10mg,S-512,2026-10-26,1
+Zimax 500mg,B-205,2026-11-23,1
+Zimax 500mg,B-205,2026-11-22,1
+Zimax 500mg,B-205,2026-11-21,1
+Zimax 500mg,B-205,2026-11-20,1
+Zimax 500mg,B-205,2026-11-19,1
+Zimax 500mg,B-205,2026-11-18,1
+Zimax 500mg,B-205,2026-11-17,1
+Zimax 500mg,B-205,2026-11-16,1
+Zimax 500mg,B-205,2026-11-15,2
+Zimax 500mg,B-205,2026-11-14,1
+Zimax 500mg,B-205,2026-11-13,1
+Zimax 500mg,B-205,2026-11-12,1
+Zimax 500mg,B-205,2026-11-11,1
+Zimax 500mg,B-205,2026-11-10,1
+Zimax 500mg,B-205,2026-11-09,1
+Zimax 500mg,B-205,2026-11-08,1
+Zimax 500mg,B-205,2026-11-07,1
+Zimax 500mg,B-205,2026-11-06,1
+Zimax 500mg,B-205,2026-11-05,1
+Zimax 500mg,B-205,2026-11-04,2
+Zimax 500mg,B-205,2026-11-03,1
+Zimax 500mg,B-205,2026-11-02,1
+Zimax 500mg,B-205,2026-11-01,1
+Zimax 500mg,B-205,2026-10-31,1
+Zimax 500mg,B-205,2026-10-30,1
+Zimax 500mg,B-205,2026-10-29,1
+Zimax 500mg,B-205,2026-10-28,1
+Zimax 500mg,B-205,2026-10-27,1
+Zimax 500mg,B-205,2026-10-26,1
+Zimax 500mg,B-205,2026-10-25,1
+Orsaline-N,R-118,2026-11-23,17
+Orsaline-N,R-118,2026-11-22,8
+Orsaline-N,R-118,2026-11-21,9
+Orsaline-N,R-118,2026-11-20,12
+Orsaline-N,R-118,2026-11-19,12
+Orsaline-N,R-118,2026-11-18,17
+Orsaline-N,R-118,2026-11-17,12
+Orsaline-N,R-118,2026-11-16,8
+Orsaline-N,R-118,2026-11-15,10
+Orsaline-N,R-118,2026-11-14,10
+Orsaline-N,R-118,2026-11-13,15
+Orsaline-N,R-118,2026-11-12,13
+Orsaline-N,R-118,2026-11-11,12
+Orsaline-N,R-118,2026-11-10,15
+Orsaline-N,R-118,2026-11-09,10
+Orsaline-N,R-118,2026-11-08,12
+Orsaline-N,R-118,2026-11-07,13
+Orsaline-N,R-118,2026-11-06,18
+Orsaline-N,R-118,2026-11-05,12
+Orsaline-N,R-118,2026-11-04,11
+Orsaline-N,R-118,2026-11-03,8
+Orsaline-N,R-118,2026-11-02,14
+Orsaline-N,R-118,2026-11-01,10
+Orsaline-N,R-118,2026-10-31,13
+Orsaline-N,R-118,2026-10-30,5
+Orsaline-N,R-118,2026-10-29,16
+Orsaline-N,R-118,2026-10-28,7
+Orsaline-N,R-118,2026-10-27,9
+Orsaline-N,R-118,2026-10-26,16
+Orsaline-N,R-118,2026-10-25,7
+Napa Syrup 60ml,B-107,2026-11-23,1
+Napa Syrup 60ml,B-107,2026-11-22,1
+Napa Syrup 60ml,B-107,2026-11-21,1
+Napa Syrup 60ml,B-107,2026-11-20,2
+Napa Syrup 60ml,B-107,2026-11-19,2
+Napa Syrup 60ml,B-107,2026-11-17,1
+Napa Syrup 60ml,B-107,2026-11-16,1
+Napa Syrup 60ml,B-107,2026-11-15,1
+Napa Syrup 60ml,B-107,2026-11-14,1
+Napa Syrup 60ml,B-107,2026-11-13,1
+Napa Syrup 60ml,B-107,2026-11-12,1
+Napa Syrup 60ml,B-107,2026-11-11,1
+Napa Syrup 60ml,B-107,2026-11-10,1
+Napa Syrup 60ml,B-107,2026-11-09,1
+Napa Syrup 60ml,B-107,2026-11-08,2
+Napa Syrup 60ml,B-107,2026-11-07,1
+Napa Syrup 60ml,B-107,2026-11-06,1
+Napa Syrup 60ml,B-107,2026-11-05,1
+Napa Syrup 60ml,B-107,2026-11-04,1
+Napa Syrup 60ml,B-107,2026-11-03,1
+Napa Syrup 60ml,B-107,2026-11-02,1
+Napa Syrup 60ml,B-107,2026-11-01,1
+Napa Syrup 60ml,B-107,2026-10-31,1
+Napa Syrup 60ml,B-107,2026-10-30,2
+Napa Syrup 60ml,B-107,2026-10-29,1
+Napa Syrup 60ml,B-107,2026-10-28,1
+Napa Syrup 60ml,B-107,2026-10-27,2
+Napa Syrup 60ml,B-107,2026-10-26,2
+Napa Syrup 60ml,B-107,2026-10-25,1
+Monas 10mg,S-620,2026-11-23,3
+Monas 10mg,S-620,2026-11-22,4
+Monas 10mg,S-620,2026-11-21,3
+Monas 10mg,S-620,2026-11-20,2
+Monas 10mg,S-620,2026-11-19,3
+Monas 10mg,S-620,2026-11-18,1
+Monas 10mg,S-620,2026-11-17,3
+Monas 10mg,S-620,2026-11-16,3
+Monas 10mg,S-620,2026-11-15,4
+Monas 10mg,S-620,2026-11-14,3
+Monas 10mg,S-620,2026-11-13,4
+Monas 10mg,S-620,2026-11-12,3
+Monas 10mg,S-620,2026-11-11,2
+Monas 10mg,S-620,2026-11-10,2
+Monas 10mg,S-620,2026-11-09,2
+Monas 10mg,S-620,2026-11-08,2
+Monas 10mg,S-620,2026-11-07,4
+Monas 10mg,S-620,2026-11-06,3
+Monas 10mg,S-620,2026-11-05,4
+Monas 10mg,S-620,2026-11-04,3
+Monas 10mg,S-620,2026-11-03,4
+Monas 10mg,S-620,2026-11-02,4
+Monas 10mg,S-620,2026-11-01,2
+Monas 10mg,S-620,2026-10-31,3
+Monas 10mg,S-620,2026-10-30,3
+Monas 10mg,S-620,2026-10-29,2
+Monas 10mg,S-620,2026-10-28,4
+Monas 10mg,S-620,2026-10-27,4
+Monas 10mg,S-620,2026-10-26,3
+Monas 10mg,S-620,2026-10-25,3
+Neotack 40mg,A-410,2026-11-23,1
+Neotack 40mg,A-410,2026-11-22,1
+Neotack 40mg,A-410,2026-11-20,1
+Neotack 40mg,A-410,2026-11-14,1
+Neotack 40mg,A-410,2026-11-12,1
+Neotack 40mg,A-410,2026-11-11,1
+Neotack 40mg,A-410,2026-11-07,1
+Neotack 40mg,A-410,2026-11-02,1
+Neotack 40mg,A-410,2026-10-29,1
+Neotack 40mg,A-410,2026-10-28,1
+Neotack 40mg,A-410,2026-10-26,1
+Tofen 1mg,A-111,2026-11-23,2
+Tofen 1mg,A-111,2026-11-22,2
+Tofen 1mg,A-111,2026-11-21,1
+Tofen 1mg,A-111,2026-11-20,2
+Tofen 1mg,A-111,2026-11-19,1
+Tofen 1mg,A-111,2026-11-18,1
+Tofen 1mg,A-111,2026-11-17,1
+Tofen 1mg,A-111,2026-11-16,2
+Tofen 1mg,A-111,2026-11-15,2
+Tofen 1mg,A-111,2026-11-14,2
+Tofen 1mg,A-111,2026-11-13,1
+Tofen 1mg,A-111,2026-11-12,1
+Tofen 1mg,A-111,2026-11-11,1
+Tofen 1mg,A-111,2026-11-10,1
+Tofen 1mg,A-111,2026-11-09,1
+Tofen 1mg,A-111,2026-11-08,1
+Tofen 1mg,A-111,2026-11-07,1
+Tofen 1mg,A-111,2026-11-06,1
+Tofen 1mg,A-111,2026-11-05,1
+Tofen 1mg,A-111,2026-11-04,1
+Tofen 1mg,A-111,2026-11-03,1
+Tofen 1mg,A-111,2026-11-02,2
+Tofen 1mg,A-111,2026-11-01,2
+Tofen 1mg,A-111,2026-10-31,2
+Tofen 1mg,A-111,2026-10-30,1
+Tofen 1mg,A-111,2026-10-29,1
+Tofen 1mg,A-111,2026-10-28,2
+Tofen 1mg,A-111,2026-10-27,2
+Tofen 1mg,A-111,2026-10-26,1
+Tofen 1mg,A-111,2026-10-25,2
+Losectil 20mg,I-510,2026-11-23,1
+Losectil 20mg,I-510,2026-11-22,1
+Losectil 20mg,I-510,2026-11-21,1
+Losectil 20mg,I-510,2026-11-20,1
+Losectil 20mg,I-510,2026-11-18,1
+Losectil 20mg,I-510,2026-11-17,1
+Losectil 20mg,I-510,2026-11-16,1
+Losectil 20mg,I-510,2026-11-15,1
+Losectil 20mg,I-510,2026-11-14,1
+Losectil 20mg,I-510,2026-11-12,1
+Losectil 20mg,I-510,2026-11-11,1
+Losectil 20mg,I-510,2026-11-10,1
+Losectil 20mg,I-510,2026-11-09,1
+Losectil 20mg,I-510,2026-11-08,1
+Losectil 20mg,I-510,2026-11-07,1
+Losectil 20mg,I-510,2026-11-06,1
+Losectil 20mg,I-510,2026-11-05,1
+Losectil 20mg,I-510,2026-11-04,1
+Losectil 20mg,I-510,2026-11-02,1
+Losectil 20mg,I-510,2026-11-01,1
+Losectil 20mg,I-510,2026-10-30,1
+Losectil 20mg,I-510,2026-10-29,1
+Losectil 20mg,I-510,2026-10-28,1
+Losectil 20mg,I-510,2026-10-27,1
+Losectil 20mg,I-510,2026-10-26,1
+Losectil 20mg,I-510,2026-10-25,1
+Vitamin C 500mg,L-001,2026-11-23,1
+Vitamin C 500mg,L-001,2026-11-21,1
+Vitamin C 500mg,L-001,2026-11-19,1
+Vitamin C 500mg,L-001,2026-11-17,1
+Vitamin C 500mg,L-001,2026-11-16,1
+Vitamin C 500mg,L-001,2026-11-15,1
+Vitamin C 500mg,L-001,2026-11-14,1
+Vitamin C 500mg,L-001,2026-11-12,1
+Vitamin C 500mg,L-001,2026-11-11,1
+Vitamin C 500mg,L-001,2026-11-10,1
+Vitamin C 500mg,L-001,2026-11-09,1
+Vitamin C 500mg,L-001,2026-11-05,1
+Vitamin C 500mg,L-001,2026-11-02,1
+Vitamin C 500mg,L-001,2026-11-01,1
+Vitamin C 500mg,L-001,2026-10-31,1
+Vitamin C 500mg,L-001,2026-10-30,1
+Vitamin C 500mg,L-001,2026-10-28,1
+Vitamin C 500mg,L-001,2026-10-26,1
+Vitamin C 500mg,L-001,2026-10-25,1
+Calbo-D,R-402,2026-11-23,1
+Calbo-D,R-402,2026-11-22,3
+Calbo-D,R-402,2026-11-21,1
+Calbo-D,R-402,2026-11-20,2
+Calbo-D,R-402,2026-11-19,3
+Calbo-D,R-402,2026-11-18,2
+Calbo-D,R-402,2026-11-17,1
+Calbo-D,R-402,2026-11-16,2
+Calbo-D,R-402,2026-11-15,2
+Calbo-D,R-402,2026-11-14,3
+Calbo-D,R-402,2026-11-13,2
+Calbo-D,R-402,2026-11-12,1
+Calbo-D,R-402,2026-11-11,2
+Calbo-D,R-402,2026-11-10,2
+Calbo-D,R-402,2026-11-09,1
+Calbo-D,R-402,2026-11-08,2
+Calbo-D,R-402,2026-11-07,1
+Calbo-D,R-402,2026-11-06,2
+Calbo-D,R-402,2026-11-05,3
+Calbo-D,R-402,2026-11-04,3
+Calbo-D,R-402,2026-11-03,2
+Calbo-D,R-402,2026-11-02,2
+Calbo-D,R-402,2026-11-01,2
+Calbo-D,R-402,2026-10-31,3
+Calbo-D,R-402,2026-10-30,2
+Calbo-D,R-402,2026-10-29,2
+Calbo-D,R-402,2026-10-28,3
+Calbo-D,R-402,2026-10-27,2
+Calbo-D,R-402,2026-10-26,2
+Calbo-D,R-402,2026-10-25,2
+Cef-3 200mg,S-731,2026-11-23,2
+Cef-3 200mg,S-731,2026-11-22,1
+Cef-3 200mg,S-731,2026-11-21,1
+Cef-3 200mg,S-731,2026-11-20,1
+Cef-3 200mg,S-731,2026-11-19,1
+Cef-3 200mg,S-731,2026-11-18,2
+Cef-3 200mg,S-731,2026-11-17,2
+Cef-3 200mg,S-731,2026-11-16,1
+Cef-3 200mg,S-731,2026-11-15,1
+Cef-3 200mg,S-731,2026-11-14,1
+Cef-3 200mg,S-731,2026-11-13,2
+Cef-3 200mg,S-731,2026-11-12,1
+Cef-3 200mg,S-731,2026-11-11,2
+Cef-3 200mg,S-731,2026-11-10,1
+Cef-3 200mg,S-731,2026-11-09,1
+Cef-3 200mg,S-731,2026-11-08,2
+Cef-3 200mg,S-731,2026-11-07,1
+Cef-3 200mg,S-731,2026-11-06,2
+Cef-3 200mg,S-731,2026-11-05,1
+Cef-3 200mg,S-731,2026-11-04,1
+Cef-3 200mg,S-731,2026-11-03,1
+Cef-3 200mg,S-731,2026-11-02,2
+Cef-3 200mg,S-731,2026-10-31,1
+Cef-3 200mg,S-731,2026-10-30,1
+Cef-3 200mg,S-731,2026-10-29,1
+Cef-3 200mg,S-731,2026-10-28,1
+Cef-3 200mg,S-731,2026-10-27,1
+Cef-3 200mg,S-731,2026-10-26,1
+Cef-3 200mg,S-731,2026-10-25,1
+Filmet 400mg,B-308,2026-11-23,3
+Filmet 400mg,B-308,2026-11-22,4
+Filmet 400mg,B-308,2026-11-21,5
+Filmet 400mg,B-308,2026-11-20,6
+Filmet 400mg,B-308,2026-11-19,3
+Filmet 400mg,B-308,2026-11-18,4
+Filmet 400mg,B-308,2026-11-17,4
+Filmet 400mg,B-308,2026-11-16,4
+Filmet 400mg,B-308,2026-11-15,4
+Filmet 400mg,B-308,2026-11-14,2
+Filmet 400mg,B-308,2026-11-13,4
+Filmet 400mg,B-308,2026-11-12,3
+Filmet 400mg,B-308,2026-11-11,3
+Filmet 400mg,B-308,2026-11-10,2
+Filmet 400mg,B-308,2026-11-09,5
+Filmet 400mg,B-308,2026-11-08,4
+Filmet 400mg,B-308,2026-11-07,5
+Filmet 400mg,B-308,2026-11-06,4
+Filmet 400mg,B-308,2026-11-05,2
+Filmet 400mg,B-308,2026-11-04,3
+Filmet 400mg,B-308,2026-11-03,5
+Filmet 400mg,B-308,2026-11-02,3
+Filmet 400mg,B-308,2026-11-01,3
+Filmet 400mg,B-308,2026-10-31,4
+Filmet 400mg,B-308,2026-10-30,4
+Filmet 400mg,B-308,2026-10-29,3
+Filmet 400mg,B-308,2026-10-28,4
+Filmet 400mg,B-308,2026-10-27,3
+Filmet 400mg,B-308,2026-10-26,1
+Filmet 400mg,B-308,2026-10-25,5
+Ranitidine 150mg,A-212,2026-11-23,5
+Ranitidine 150mg,A-212,2026-11-22,8
+Ranitidine 150mg,A-212,2026-11-21,4
+Ranitidine 150mg,A-212,2026-11-20,3
+Ranitidine 150mg,A-212,2026-11-19,8
+Ranitidine 150mg,A-212,2026-11-18,3
+Ranitidine 150mg,A-212,2026-11-17,5
+Ranitidine 150mg,A-212,2026-11-16,7
+Ranitidine 150mg,A-212,2026-11-15,5
+Ranitidine 150mg,A-212,2026-11-14,3
+Ranitidine 150mg,A-212,2026-11-13,6
+Ranitidine 150mg,A-212,2026-11-12,6
+Ranitidine 150mg,A-212,2026-11-11,8
+Ranitidine 150mg,A-212,2026-11-10,7
+Ranitidine 150mg,A-212,2026-11-09,11
+Ranitidine 150mg,A-212,2026-11-08,3
+Ranitidine 150mg,A-212,2026-11-07,6
+Ranitidine 150mg,A-212,2026-11-06,4
+Ranitidine 150mg,A-212,2026-11-05,8
+Ranitidine 150mg,A-212,2026-11-04,7
+Ranitidine 150mg,A-212,2026-11-03,7
+Ranitidine 150mg,A-212,2026-11-02,5
+Ranitidine 150mg,A-212,2026-11-01,5
+Ranitidine 150mg,A-212,2026-10-31,2
+Ranitidine 150mg,A-212,2026-10-30,9
+Ranitidine 150mg,A-212,2026-10-29,7
+Ranitidine 150mg,A-212,2026-10-28,6
+Ranitidine 150mg,A-212,2026-10-27,8
+Ranitidine 150mg,A-212,2026-10-26,7
+Ranitidine 150mg,A-212,2026-10-25,8
+Dexpoten 25mg,R-505,2026-11-23,1
+Dexpoten 25mg,R-505,2026-11-22,1
+Dexpoten 25mg,R-505,2026-11-21,1
+Dexpoten 25mg,R-505,2026-11-19,1
+Dexpoten 25mg,R-505,2026-11-18,1
+Dexpoten 25mg,R-505,2026-11-15,1
+Dexpoten 25mg,R-505,2026-11-14,1
+Dexpoten 25mg,R-505,2026-11-13,1
+Dexpoten 25mg,R-505,2026-11-11,1
+Dexpoten 25mg,R-505,2026-11-10,1
+Dexpoten 25mg,R-505,2026-11-08,1
+Dexpoten 25mg,R-505,2026-11-07,1
+Dexpoten 25mg,R-505,2026-11-06,1
+Dexpoten 25mg,R-505,2026-11-05,1
+Dexpoten 25mg,R-505,2026-11-03,1
+Dexpoten 25mg,R-505,2026-10-27,1
+Dexpoten 25mg,R-505,2026-10-25,1
+Omidon 10mg,I-611,2026-11-23,1
+Omidon 10mg,I-611,2026-11-22,1
+Omidon 10mg,I-611,2026-11-18,1
+Omidon 10mg,I-611,2026-11-17,1
+Omidon 10mg,I-611,2026-11-16,1
+Omidon 10mg,I-611,2026-11-11,1
+Omidon 10mg,I-611,2026-11-07,1
+Omidon 10mg,I-611,2026-11-06,1
+Omidon 10mg,I-611,2026-11-01,1
+Omidon 10mg,I-611,2026-10-30,1
+Omidon 10mg,I-611,2026-10-25,1
+Amodis 400mg,S-808,2026-11-23,2
+Amodis 400mg,S-808,2026-11-22,3
+Amodis 400mg,S-808,2026-11-21,2
+Amodis 400mg,S-808,2026-11-20,3
+Amodis 400mg,S-808,2026-11-19,3
+Amodis 400mg,S-808,2026-11-18,2
+Amodis 400mg,S-808,2026-11-17,2
+Amodis 400mg,S-808,2026-11-16,3
+Amodis 400mg,S-808,2026-11-15,4
+Amodis 400mg,S-808,2026-11-14,2
+Amodis 400mg,S-808,2026-11-13,3
+Amodis 400mg,S-808,2026-11-12,3
+Amodis 400mg,S-808,2026-11-11,1
+Amodis 400mg,S-808,2026-11-10,2
+Amodis 400mg,S-808,2026-11-09,2
+Amodis 400mg,S-808,2026-11-08,3
+Amodis 400mg,S-808,2026-11-07,3
+Amodis 400mg,S-808,2026-11-06,3
+Amodis 400mg,S-808,2026-11-05,3
+Amodis 400mg,S-808,2026-11-04,2
+Amodis 400mg,S-808,2026-11-03,2
+Amodis 400mg,S-808,2026-11-02,2
+Amodis 400mg,S-808,2026-11-01,2
+Amodis 400mg,S-808,2026-10-31,2
+Amodis 400mg,S-808,2026-10-30,3
+Amodis 400mg,S-808,2026-10-29,2
+Amodis 400mg,S-808,2026-10-28,3
+Amodis 400mg,S-808,2026-10-27,3
+Amodis 400mg,S-808,2026-10-26,4
+Amodis 400mg,S-808,2026-10-25,3
+Moxacil 500mg,B-419,2026-11-21,1
+Moxacil 500mg,B-419,2026-11-19,1
+Moxacil 500mg,B-419,2026-11-18,1
+Moxacil 500mg,B-419,2026-11-17,1
+Moxacil 500mg,B-419,2026-11-15,1
+Moxacil 500mg,B-419,2026-11-14,1
+Moxacil 500mg,B-419,2026-11-11,1
+Moxacil 500mg,B-419,2026-11-06,1
+Moxacil 500mg,B-419,2026-11-03,1
+Moxacil 500mg,B-419,2026-10-25,1
+Herbal Tonic 200ml,L-014,2026-11-18,1
+Herbal Tonic 200ml,L-014,2026-11-17,1
+Herbal Tonic 200ml,L-014,2026-11-07,1
+Herbal Tonic 200ml,L-014,2026-10-25,1
+Hexisol Gargle,R-077,2026-11-19,1
+Hexisol Gargle,R-077,2026-11-14,1
+Hexisol Gargle,R-077,2026-11-08,1
+Hexisol Gargle,R-077,2026-11-07,1
+Hexisol Gargle,R-077,2026-11-03,1
+Hexisol Gargle,R-077,2026-10-25,1
+Zinc Syrup,A-330,2026-11-23,1
+Zinc Syrup,A-330,2026-11-22,1
+Zinc Syrup,A-330,2026-11-21,1
+Zinc Syrup,A-330,2026-11-20,1
+Zinc Syrup,A-330,2026-11-19,1
+Zinc Syrup,A-330,2026-11-18,1
+Zinc Syrup,A-330,2026-11-15,1
+Zinc Syrup,A-330,2026-11-14,1
+Zinc Syrup,A-330,2026-11-12,1
+Zinc Syrup,A-330,2026-11-09,1
+Zinc Syrup,A-330,2026-11-06,1
+Zinc Syrup,A-330,2026-11-05,1
+Zinc Syrup,A-330,2026-11-04,1
+Zinc Syrup,A-330,2026-11-03,1
+Zinc Syrup,A-330,2026-11-02,1
+Zinc Syrup,A-330,2026-11-01,1
+Zinc Syrup,A-330,2026-10-30,1
+Zinc Syrup,A-330,2026-10-29,1
+Zinc Syrup,A-330,2026-10-27,1
+Zinc Syrup,A-330,2026-10-26,1
+Zinc Syrup,A-330,2026-10-25,1
+Insulin 70/30,I-901,2026-11-23,1
+Insulin 70/30,I-901,2026-11-20,1
+Insulin 70/30,I-901,2026-11-19,1
+Insulin 70/30,I-901,2026-11-17,1
+Insulin 70/30,I-901,2026-11-16,1
+Insulin 70/30,I-901,2026-11-12,1
+Insulin 70/30,I-901,2026-11-09,1
+Insulin 70/30,I-901,2026-11-08,1
+Insulin 70/30,I-901,2026-11-07,1
+Insulin 70/30,I-901,2026-11-05,1
+Insulin 70/30,I-901,2026-10-31,1
+Insulin 70/30,I-901,2026-10-30,1
+Insulin 70/30,I-901,2026-10-29,1
+Insulin 70/30,I-901,2026-10-28,1
+Insulin 70/30,I-901,2026-10-27,1
+Insulin 70/30,I-901,2026-10-26,1
+ORS Powder,L-020,2026-11-23,7
+ORS Powder,L-020,2026-11-22,2
+ORS Powder,L-020,2026-11-21,6
+ORS Powder,L-020,2026-11-20,5
+ORS Powder,L-020,2026-11-19,5
+ORS Powder,L-020,2026-11-18,4
+ORS Powder,L-020,2026-11-17,4
+ORS Powder,L-020,2026-11-16,6
+ORS Powder,L-020,2026-11-15,6
+ORS Powder,L-020,2026-11-14,3
+ORS Powder,L-020,2026-11-13,5
+ORS Powder,L-020,2026-11-12,4
+ORS Powder,L-020,2026-11-11,4
+ORS Powder,L-020,2026-11-10,6
+ORS Powder,L-020,2026-11-09,5
+ORS Powder,L-020,2026-11-08,4
+ORS Powder,L-020,2026-11-07,4
+ORS Powder,L-020,2026-11-06,5
+ORS Powder,L-020,2026-11-05,5
+ORS Powder,L-020,2026-11-04,3
+ORS Powder,L-020,2026-11-03,4
+ORS Powder,L-020,2026-11-02,5
+ORS Powder,L-020,2026-11-01,6
+ORS Powder,L-020,2026-10-31,3
+ORS Powder,L-020,2026-10-30,6
+ORS Powder,L-020,2026-10-29,4
+ORS Powder,L-020,2026-10-28,9
+ORS Powder,L-020,2026-10-27,4
+ORS Powder,L-020,2026-10-26,4
+ORS Powder,L-020,2026-10-25,5
+Paracetamol 500mg,S-005,2026-11-23,22
+Paracetamol 500mg,S-005,2026-11-22,37
+Paracetamol 500mg,S-005,2026-11-21,46
+Paracetamol 500mg,S-005,2026-11-20,27
+Paracetamol 500mg,S-005,2026-11-19,32
+Paracetamol 500mg,S-005,2026-11-18,25
+Paracetamol 500mg,S-005,2026-11-17,30
+Paracetamol 500mg,S-005,2026-11-16,43
+Paracetamol 500mg,S-005,2026-11-15,38
+Paracetamol 500mg,S-005,2026-11-14,22
+Paracetamol 500mg,S-005,2026-11-13,44
+Paracetamol 500mg,S-005,2026-11-12,40
+Paracetamol 500mg,S-005,2026-11-11,34
+Paracetamol 500mg,S-005,2026-11-10,24
+Paracetamol 500mg,S-005,2026-11-09,31
+Paracetamol 500mg,S-005,2026-11-08,23
+Paracetamol 500mg,S-005,2026-11-07,34
+Paracetamol 500mg,S-005,2026-11-06,27
+Paracetamol 500mg,S-005,2026-11-05,10
+Paracetamol 500mg,S-005,2026-11-04,38
+Paracetamol 500mg,S-005,2026-11-03,32
+Paracetamol 500mg,S-005,2026-11-02,40
+Paracetamol 500mg,S-005,2026-11-01,29
+Paracetamol 500mg,S-005,2026-10-31,32
+Paracetamol 500mg,S-005,2026-10-30,40
+Paracetamol 500mg,S-005,2026-10-29,33
+Paracetamol 500mg,S-005,2026-10-28,33
+Paracetamol 500mg,S-005,2026-10-27,59
+Paracetamol 500mg,S-005,2026-10-26,28
+Paracetamol 500mg,S-005,2026-10-25,32
+Antacid Plus,B-512,2026-11-18,1
+Antacid Plus,B-512,2026-11-15,1
+Antacid Plus,B-512,2026-11-14,1
+Antacid Plus,B-512,2026-11-09,1
+Antacid Plus,B-512,2026-11-08,1
+Antacid Plus,B-512,2026-11-07,1
+Antacid Plus,B-512,2026-11-04,1
+Antacid Plus,B-512,2026-10-29,1
+Eye Drops,R-250,2026-11-21,1
+Eye Drops,R-250,2026-11-19,1
+Eye Drops,R-250,2026-11-18,1
+Eye Drops,R-250,2026-11-14,1
+Eye Drops,R-250,2026-11-03,1
+Bisoprolol 5mg,S-915,2026-11-23,1
+Bisoprolol 5mg,S-915,2026-11-21,1
+Bisoprolol 5mg,S-915,2026-11-20,1
+Bisoprolol 5mg,S-915,2026-11-19,1
+Bisoprolol 5mg,S-915,2026-11-18,1
+Bisoprolol 5mg,S-915,2026-11-17,1
+Bisoprolol 5mg,S-915,2026-11-16,1
+Bisoprolol 5mg,S-915,2026-11-15,1
+Bisoprolol 5mg,S-915,2026-11-14,1
+Bisoprolol 5mg,S-915,2026-11-13,1
+Bisoprolol 5mg,S-915,2026-11-12,1
+Bisoprolol 5mg,S-915,2026-11-11,1
+Bisoprolol 5mg,S-915,2026-11-09,1
+Bisoprolol 5mg,S-915,2026-11-08,1
+Bisoprolol 5mg,S-915,2026-11-07,1
+Bisoprolol 5mg,S-915,2026-11-06,1
+Bisoprolol 5mg,S-915,2026-11-05,1
+Bisoprolol 5mg,S-915,2026-11-04,1
+Bisoprolol 5mg,S-915,2026-11-03,1
+Bisoprolol 5mg,S-915,2026-11-02,1
+Bisoprolol 5mg,S-915,2026-11-01,1
+Bisoprolol 5mg,S-915,2026-10-31,1
+Bisoprolol 5mg,S-915,2026-10-30,1
+Bisoprolol 5mg,S-915,2026-10-29,1
+Bisoprolol 5mg,S-915,2026-10-28,1
+Bisoprolol 5mg,S-915,2026-10-27,1
+Bisoprolol 5mg,S-915,2026-10-25,1
+Cetirizine 10mg,A-099,2026-11-23,3
+Cetirizine 10mg,A-099,2026-11-22,5
+Cetirizine 10mg,A-099,2026-11-21,3
+Cetirizine 10mg,A-099,2026-11-20,3
+Cetirizine 10mg,A-099,2026-11-19,4
+Cetirizine 10mg,A-099,2026-11-18,2
+Cetirizine 10mg,A-099,2026-11-17,4
+Cetirizine 10mg,A-099,2026-11-16,2
+Cetirizine 10mg,A-099,2026-11-15,4
+Cetirizine 10mg,A-099,2026-11-14,4
+Cetirizine 10mg,A-099,2026-11-13,3
+Cetirizine 10mg,A-099,2026-11-12,2
+Cetirizine 10mg,A-099,2026-11-11,3
+Cetirizine 10mg,A-099,2026-11-10,3
+Cetirizine 10mg,A-099,2026-11-09,1
+Cetirizine 10mg,A-099,2026-11-08,3
+Cetirizine 10mg,A-099,2026-11-07,4
+Cetirizine 10mg,A-099,2026-11-06,2
+Cetirizine 10mg,A-099,2026-11-05,4
+Cetirizine 10mg,A-099,2026-11-04,2
+Cetirizine 10mg,A-099,2026-11-03,3
+Cetirizine 10mg,A-099,2026-11-02,2
+Cetirizine 10mg,A-099,2026-11-01,3
+Cetirizine 10mg,A-099,2026-10-31,3
+Cetirizine 10mg,A-099,2026-10-30,4
+Cetirizine 10mg,A-099,2026-10-29,4
+Cetirizine 10mg,A-099,2026-10-28,4
+Cetirizine 10mg,A-099,2026-10-27,3
+Cetirizine 10mg,A-099,2026-10-26,2
+Cetirizine 10mg,A-099,2026-10-25,4
+Expired Sample Cream,L-777,2026-11-23,1
+Expired Sample Cream,L-777,2026-11-13,1
