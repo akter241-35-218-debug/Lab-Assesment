@@ -1,0 +1,20 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "FastAPI",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "uvicorn",
+      "args": ["backend.app.main:app", "--reload"],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "name": "AI engine demo",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "ai_engine.daily_alerts",
+      "cwd": "${workspaceFolder}"
+    }
+  ]
+}

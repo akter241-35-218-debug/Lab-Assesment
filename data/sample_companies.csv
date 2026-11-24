@@ -1,0 +1,4 @@
+company,return_window_days,discount_allowed,max_discount_pct
+ACI,90,true,20
+Square,60,true,15
+Beximco,0,false,0

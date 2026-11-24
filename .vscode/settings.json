@@ -1,0 +1,5 @@
+{
+  "python.analysis.extraPaths": ["./"],
+  "editor.formatOnSave": true,
+  "files.exclude": {"**/__pycache__": true, "**/node_modules": true}
+}
