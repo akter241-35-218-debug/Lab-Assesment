@@ -1,4 +1,5 @@
-"""Builds the daily digest: DB -> ai_engine -> filter by Done/Snooze/Dismiss."""
+"""Builds the daily digest: DB -> ai_engine (Member 1) -> hide Done/Snooze/Dismiss."""
+from collections import defaultdict
 from datetime import date, timedelta
 from typing import Optional
 
@@ -11,21 +12,25 @@ from ..config import settings, today_local
 from ..models import ActionLog, Medicine, Sale
 
 
-def avg_daily_sales_map(db: Session, today: date, window_days: Optional[int] = None) -> dict[int, float]:
-    """medicine_id -> units/day over the last `window_days` (sum / window)."""
-    window = window_days or settings.sales_window_days
-    start = today - timedelta(days=window)
+def sales_history(db: Session, today: date) -> dict[int, list[dict]]:
+    """medicine_id -> [{'date', 'qty'}] per day for the last SALES_HISTORY_DAYS days.
+    ai_engine turns this into avg_daily_sales (30d/7d blend) and the optional forecast."""
+    start = today - timedelta(days=settings.sales_history_days)
     rows = (
-        db.query(Sale.medicine_id, func.sum(Sale.quantity_sold))
+        db.query(Sale.medicine_id, Sale.sale_date, func.sum(Sale.quantity_sold))
         .filter(Sale.sale_date > start, Sale.sale_date <= today)
-        .group_by(Sale.medicine_id)
+        .group_by(Sale.medicine_id, Sale.sale_date)
         .all()
     )
-    return {mid: float(total) / window for mid, total in rows}
+    out: dict[int, list[dict]] = defaultdict(list)
+    for mid, d, qty in rows:
+        out[mid].append({"date": d, "qty": float(qty)})
+    return out
 
 
 def build_inputs(db: Session, today: date) -> list[dict]:
-    velocity = avg_daily_sales_map(db, today)
+    """One dict per in-stock medicine batch, in the shape ai_engine.get_daily_alerts expects."""
+    history = sales_history(db, today)
     meds = db.query(Medicine).options(joinedload(Medicine.company)).filter(Medicine.quantity > 0).all()
     return [
         {
@@ -40,7 +45,8 @@ def build_inputs(db: Session, today: date) -> list[dict]:
             "return_window_days": m.company.return_window_days,
             "discount_allowed": m.company.discount_allowed,
             "max_discount_pct": m.company.max_discount_pct,
-            "avg_daily_sales": velocity.get(m.id, 0.0),
+            "sales": history.get(m.id, []),
+            "avg_daily_sales": 0.0,  # used by ai_engine only when `sales` is empty (= nothing sold)
         }
         for m in meds
     ]
@@ -54,14 +60,14 @@ def latest_actions(db: Session) -> dict[int, ActionLog]:
 def is_suppressed(alert: dict, log: Optional[ActionLog], today: date) -> bool:
     """Should this alert be hidden because of the owner's last action?
 
-    - If the recommended action changed since (e.g. RETURN -> DISCOUNT) it shows again.
+    - If the recommended action type changed since (e.g. RETURN -> DISCOUNT) it shows again.
     - done    -> hidden for good
     - snooze  -> hidden until snooze_until
     - dismiss -> hidden for DISMISS_DAYS
     """
     if log is None:
         return False
-    if log.recommended_action and log.recommended_action != alert["action"]:
+    if log.recommended_action and log.recommended_action != alert["action"]["type"]:
         return False
     if log.action_type == "done":
         return True
@@ -74,7 +80,7 @@ def is_suppressed(alert: dict, log: Optional[ActionLog], today: date) -> bool:
 
 def get_digest(db: Session, today: Optional[date] = None, include_suppressed: bool = False) -> dict:
     today = today or today_local()
-    alerts = get_daily_alerts(build_inputs(db, today), today)
+    alerts = get_daily_alerts(build_inputs(db, today), today)  # action_log handled here, not in ai_engine
     logs = latest_actions(db)
 
     visible, hidden = [], 0
@@ -89,6 +95,6 @@ def get_digest(db: Session, today: Optional[date] = None, include_suppressed: bo
         "date": today,
         "total": len(visible),
         "suppressed": hidden,
-        "total_loss_at_risk": round(sum(a["risk"]["loss_amount"] for a in visible), 2),
+        "total_loss_at_risk": round(sum(a["risk"]["expected_loss"] for a in visible), 2),
         "alerts": visible,
     }

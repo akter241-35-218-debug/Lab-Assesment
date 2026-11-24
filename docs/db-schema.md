@@ -11,7 +11,7 @@ companies 1 ──< medicines 1 ──< sales
 |---|---|---|
 | `companies` | `name` (unique), `return_window_days` (NULL = no return), `discount_allowed`, `max_discount_pct` | Return policy + discount rule |
 | `medicines` | `name`, `batch`, `quantity`, `expiry_date`, `cost_price`, `selling_price`, `company_id` | One row = one batch. `UNIQUE(name, batch)` |
-| `sales` | `medicine_id`, `quantity_sold`, `sale_date` | `avg_daily_sales` = sum(last `SALES_WINDOW_DAYS` days) / `SALES_WINDOW_DAYS` |
+| `sales` | `medicine_id`, `quantity_sold`, `sale_date` | Last `SALES_HISTORY_DAYS` days are given to `ai_engine`, which computes velocity (30d/7d blend) and the forecast |
 | `action_logs` | `medicine_id`, `action_type` (done/snooze/dismiss), `recommended_action`, `snooze_until`, `loss_amount`, `acted_on` | Latest row per medicine decides whether an alert is hidden |
 
 ## Alert suppression rules (`services/digest_service.py`)
@@ -25,4 +25,4 @@ Only the **latest** action of a medicine counts.
 
 If the recommended action *changes* (e.g. RETURN deadline passed, now DISCOUNT) the alert shows again, because it is a new decision.
 
-`action_logs.loss_amount` stores `quantity x cost_price` at the time of the action; the monthly **loss saved** report sums it for *done* actions whose recommended action was RETURN or DISCOUNT.
+`action_logs.loss_amount` stores the stock value `quantity x cost_price` at the time of the action; the monthly **loss saved** report sums it for *done* actions whose recommended action was RETURN or DISCOUNT.

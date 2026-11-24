@@ -3,8 +3,8 @@
 Base URL: `http://localhost:8000` · Interactive docs: `/docs` (Swagger) · Dates are ISO `YYYY-MM-DD`.
 
 ## Member 1 -> Member 2: `get_daily_alerts(medicines, today)`
-Input: list of dicts `id, name, batch, company, quantity, expiry_date, cost_price, selling_price, return_window_days (int|None), discount_allowed, max_discount_pct, avg_daily_sales`.
-`backend/app/services/digest_service.py` builds this from the DB. Output = list of alerts, sorted by priority (below).
+Input: one dict per medicine batch: `id, name, batch, company, quantity, expiry_date, cost_price, selling_price, return_window_days (int|None), discount_allowed, max_discount_pct, sales [{date, qty}]`.
+`backend/app/services/digest_service.py` builds this from the DB (last `SALES_HISTORY_DAYS` = 120 days of sales). The backend returns Member 1's output **unchanged**; Done/Snooze/Dismiss filtering is done in the backend, not via `action_log`.
 
 ## Member 2 -> Member 3 (REST)
 
@@ -12,20 +12,27 @@ Input: list of dicts `id, name, batch, company, quantity, expiry_date, cost_pric
 `GET /alerts/today?include_suppressed=false&today=YYYY-MM-DD(optional, demo)`
 ```jsonc
 {
-  "date": "2026-11-24", "total": 2, "suppressed": 0, "total_loss_at_risk": 5100.0,
-  "alerts": [{
+  "date": "2026-11-24", "total": 2, "suppressed": 0, "total_loss_at_risk": 8025.0,   // sum of risk.expected_loss
+  "alerts": [{                                // sorted by priority.score, highest first
     "medicine": {"id": 2, "name": "Seclo 20mg", "batch": "S-220", "company": "Square",
-                 "quantity": 300, "expiry_date": "2027-03-02"},
-    "risk": {"level": "high", "days_to_expiry": 98, "days_of_stock_left": 200.0,
-             "avg_daily_sales": 1.5, "return_window_days": 90, "return_deadline": "2026-12-02",
-             "days_to_return_deadline": 8, "loss_amount": 1500.0},
-    "action": "RETURN",                      // RETURN | DISCOUNT | OTHER
-    "reason": "Return deadline 8 din pore; company-ke ekhoni return pathate hobe",
-    "priority": {"score": 55, "level": "medium"},   // 0-100; high >= 70, medium >= 40
-    "suggested_discount_pct": null           // set when action = DISCOUNT
+                 "quantity": 900, "expiry_date": "2027-03-01"},
+    "risk": {"risky": true, "expired": false, "noise_filtered": false,
+             "days_to_expiry": 97, "days_to_return_deadline": 7,   // null = no return policy, <0 = missed
+             "avg_daily_sales": 2.0, "days_of_stock_left": 450.0,  // null = not selling
+             "units_at_risk": 745.0, "expected_loss": 3724.0, "total_value": 4500.0},
+    "action": {"type": "RETURN",              // RETURN | DISCOUNT | OTHER  (fields below depend on type)
+               "return_deadline_in_days": 7, "company": "Square", "return_window_days": 90},
+    "reason": "Return deadline is in 7 days (Square accepts returns 90 days before expiry). ...",
+    "priority": {"score": 62.2, "level": "MEDIUM",           // HIGH >= 70, MEDIUM >= 40, else LOW
+                 "parts": {"urgency": 0.77, "loss": 0.19, "slowness": 1.0}}
   }]
 }
 ```
+`action` by type (unused fields are `null`):
+- **RETURN**: `return_deadline_in_days`, `company`, `return_window_days`
+- **DISCOUNT**: `discount_pct`, `old_price`, `new_price`, `max_allowed_pct`, `capped`, `why_not_return`
+- **OTHER**: `kind` (`write_off` | `manual`), `why_not_return`, `suggestions[]`
+
 `POST /alerts/run-job?today=` runs the morning job now (digest + notifications) - handy for demo.
 
 ### Done / Snooze / Dismiss
@@ -33,7 +40,7 @@ Input: list of dicts `id, name, batch, company, quantity, expiry_date, cost_pric
 ```json
 {"medicine_id": 2, "action_type": "done|snooze|dismiss", "recommended_action": "RETURN", "snooze_days": 3, "note": "optional"}
 ```
-Always send the alert's `action` as `recommended_action`. `GET /actions?medicine_id=`, `DELETE /actions/{id}` (undo).
+Always send the alert's `action.type` as `recommended_action`. `GET /actions?medicine_id=`, `DELETE /actions/{id}` (undo).
 
 ### Medicines · Companies · Sales
 | Method | Path | Notes |

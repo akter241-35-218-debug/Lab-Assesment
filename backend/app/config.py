@@ -38,7 +38,8 @@ class Settings:
         self.digest_hour = _int("DIGEST_HOUR", 8)
         self.digest_minute = _int("DIGEST_MINUTE", 0)
 
-        self.sales_window_days = _int("SALES_WINDOW_DAYS", 30)
+        # how many days of sales rows are handed to ai_engine (it computes velocity/forecast itself)
+        self.sales_history_days = _int("SALES_HISTORY_DAYS", 120)
         self.default_snooze_days = _int("DEFAULT_SNOOZE_DAYS", 3)
         self.dismiss_days = _int("DISMISS_DAYS", 30)
 

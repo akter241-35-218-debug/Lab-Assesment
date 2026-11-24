@@ -17,21 +17,43 @@ def by_name(d):
 def test_problem_statement_scenario(client, demo):
     d = digest(client)
     alerts = by_name(d)
-    assert "Napa Extra" not in alerts                       # fast seller -> no alert
-    assert alerts["Seclo 20mg"]["action"] == "RETURN"       # deadline in 8 days
-    assert alerts["Seclo 20mg"]["risk"]["days_to_return_deadline"] == 8
-    assert alerts["Cough Syrup"]["action"] == "OTHER"       # no return, no discount
-    assert d["total"] == 2
-    assert d["total_loss_at_risk"] == 300 * 5.0 + 80 * 45
+    assert "Napa Extra" not in alerts                              # fast seller -> no alert
+    seclo = alerts["Seclo 20mg"]
+    assert seclo["action"]["type"] == "RETURN"                     # deadline in 7 days
+    assert seclo["action"]["return_deadline_in_days"] == 7
+    assert seclo["risk"]["days_to_return_deadline"] == 7
+    assert alerts["Cough Syrup"]["action"]["type"] == "OTHER"      # no return, no discount
+    assert alerts["Cough Syrup"]["action"]["suggestions"]
+    assert d["total"] == 2 and all(a["reason"] for a in d["alerts"])
+    assert d["total_loss_at_risk"] == round(sum(a["risk"]["expected_loss"] for a in d["alerts"]), 2)
+    assert d["total_loss_at_risk"] > 0
+    assert {a["priority"]["level"] for a in d["alerts"]} <= {"HIGH", "MEDIUM", "LOW"}
     scores = [a["priority"]["score"] for a in d["alerts"]]
     assert scores == sorted(scores, reverse=True)
+
+
+def test_medicine_without_sales_is_not_selling(client):
+    cid = client.post("/companies", json={"name": "C"}).json()["id"]
+    client.post("/medicines", json=dict(name="Dead Stock", batch="x", quantity=100, cost_price=20,
+                                        selling_price=30, expiry_date=str(TODAY + timedelta(days=30)),
+                                        company_id=cid))
+    a = by_name(digest(client))["Dead Stock"]
+    assert a["risk"]["days_of_stock_left"] is None and a["risk"]["avg_daily_sales"] == 0
+
+
+def test_expired_stock_always_alerts_high(client):
+    cid = client.post("/companies", json={"name": "C"}).json()["id"]
+    client.post("/medicines", json=dict(name="Old", batch="x", quantity=10, cost_price=30, selling_price=40,
+                                        expiry_date=str(TODAY - timedelta(days=5)), company_id=cid))
+    a = by_name(digest(client))["Old"]
+    assert a["risk"]["expired"] and a["action"]["type"] == "OTHER" and a["priority"]["level"] == "HIGH"
 
 
 def test_done_hides_alert_and_undo_restores(client, demo):
     seclo = demo["seclo"]
     r = client.post("/actions", json=dict(medicine_id=seclo, action_type="done",
                                           recommended_action="RETURN", today=str(TODAY)))
-    assert r.status_code == 201 and r.json()["loss_amount"] == 1500
+    assert r.status_code == 201 and r.json()["loss_amount"] == 4500   # 900 x 5
     d = digest(client)
     assert "Seclo 20mg" not in by_name(d) and d["suppressed"] == 1
     assert "Seclo 20mg" in by_name(digest(client, include_suppressed=True))
@@ -60,12 +82,12 @@ def test_dismiss_expires_and_escalation_reappears(client, demo):
     later = client.get("/alerts/today", params={"today": str(TODAY + timedelta(days=31))}).json()
     assert "Cough Syrup" in by_name(later)
 
-    # escalation: Seclo marked done for RETURN; once return deadline has passed the action
-    # becomes DISCOUNT, which is a *new* decision -> alert shows again
+    # escalation: Seclo marked done for RETURN; once the return deadline has passed the
+    # action is no longer RETURN -> a *new* decision -> the alert shows again
     client.post("/actions", json=dict(medicine_id=demo["seclo"], action_type="done",
                                       recommended_action="RETURN", today=str(TODAY)))
-    later = client.get("/alerts/today", params={"today": str(TODAY + timedelta(days=10))}).json()
-    assert by_name(later)["Seclo 20mg"]["action"] == "DISCOUNT"
+    later = client.get("/alerts/today", params={"today": str(TODAY + timedelta(days=85))}).json()
+    assert by_name(later)["Seclo 20mg"]["action"]["type"] in ("DISCOUNT", "OTHER")
 
 
 def test_action_validation(client, demo):
@@ -81,11 +103,11 @@ def test_dashboard_and_loss_saved(client, demo):
     s = client.get("/dashboard/summary", params={"today": str(TODAY)}).json()
     assert s["total_medicines"] == 3
     assert s["actions_this_month"]["done"] == 2
-    assert s["loss_saved_this_month"] == 1500          # only RETURN/DISCOUNT count as saved
-    assert (s["expiring_60_days"], s["expiring_90_days"]) == (1, 1)  # only Cough Syrup (+60d)
+    assert s["loss_saved_this_month"] == 4500          # only RETURN/DISCOUNT count as saved
+    assert (s["expiring_60_days"], s["expiring_90_days"]) == (1, 1)  # only Cough Syrup (+52d)
 
     rep = client.get("/dashboard/loss-saved", params={"month": "2026-11"}).json()
-    assert rep["total_loss_saved"] == 1500 and rep["by_action"] == {"RETURN": 1500.0}
+    assert rep["total_loss_saved"] == 4500 and rep["by_action"] == {"RETURN": 4500.0}
     assert client.get("/dashboard/loss-saved", params={"month": "2026-13"}).status_code == 422
     assert client.get("/dashboard/loss-saved", params={"month": "bad"}).status_code == 422
 
@@ -93,7 +115,7 @@ def test_dashboard_and_loss_saved(client, demo):
 def test_notification_message_and_run_job(client, demo):
     d = digest(client)
     msg = notification.format_digest_message(d)
-    assert "Seclo 20mg" in msg and "RETURN" in msg and "2 ta medicine" in msg
+    assert "Seclo 20mg" in msg and "- RETURN" in msg and "2 ta medicine" in msg
 
     r = client.post("/alerts/run-job", params={"today": str(TODAY)}).json()
     assert r["total"] == 2

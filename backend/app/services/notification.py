@@ -18,8 +18,8 @@ def format_digest_message(digest: dict, top_n: int = 10) -> str:
     ]
     for i, a in enumerate(alerts[:top_n], 1):
         m = a["medicine"]
-        lines.append(f"{i}. [{a['priority']['level'].upper()} {a['priority']['score']}] "
-                     f"{m['name']} ({m['batch'] or '-'}) - {a['action']}")
+        lines.append(f"{i}. [{a['priority']['level'].upper()} {a['priority']['score']:.0f}] "
+                     f"{m['name']} ({m['batch'] or '-'}) - {a['action']['type']}")
         lines.append(f"   {a['reason']}")
     if len(alerts) > top_n:
         lines.append(f"... ar {len(alerts) - top_n} ta dashboard-e dekho.")
@@ -29,7 +29,7 @@ def format_digest_message(digest: dict, top_n: int = 10) -> str:
 def format_short(digest: dict) -> str:
     top = digest["alerts"][0]
     return (f"Pharmacy Shelf: aj {digest['total']} ta alert. "
-            f"Sob-theke urgent: {top['medicine']['name']} ({top['action']}).")
+            f"Sob-theke urgent: {top['medicine']['name']} ({top['action']['type']}).")
 
 
 def _send_email(body: str, subject: str) -> str:

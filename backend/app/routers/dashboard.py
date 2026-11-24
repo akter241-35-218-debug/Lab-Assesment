@@ -33,7 +33,7 @@ def summary(today: Optional[date] = None, db: Session = Depends(get_db)):
     digest = get_digest(db, today)
     by_action = defaultdict(int)
     for a in digest["alerts"]:
-        by_action[a["action"]] += 1
+        by_action[a["action"]["type"]] += 1
 
     month_start = today.replace(day=1)
     counts = dict(
