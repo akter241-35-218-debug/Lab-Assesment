@@ -1,8 +1,32 @@
-"""Priority score 0-100 [Member 1]"""
+"""Priority score 0-100 (Member 1).
+score = 100 x (w_urgency x urgency + w_loss x loss + w_slow x slowness)
+  urgency  : how close is the action deadline (return deadline for RETURN, expiry for the rest)
+  loss     : expected financial loss, 1.0 at loss_cap
+  slowness : how much longer than its shelf life the stock would take to sell
+Expired medicines are always HIGH (patient safety).
+Level: HIGH >= 70, MEDIUM >= 40, LOW below."""
+from .config import DEFAULT
 
-def score(potential_loss, d_expiry, d_return, sell_days):
-    urgency_days = d_return if (d_return is not None and d_return >= 0) else d_expiry
-    urgency = max(0.0, 1 - min(urgency_days, 180) / 180)          # closer = higher
-    money = min(potential_loss / 5000, 1)                          # 5000+ BDT = max
-    slow = min(sell_days / max(d_expiry, 1) / 3, 1) if d_expiry > 0 else 1
-    return round((0.45 * urgency + 0.35 * money + 0.20 * slow) * 100, 1)
+
+def _clamp(x, lo=0.0, hi=1.0):
+    return max(lo, min(hi, x))
+
+
+def priority_score(risk, action, cfg=DEFAULT) -> dict:
+    if action["type"] == "RETURN":
+        days_left, horizon = risk["days_to_return_deadline"], cfg.return_horizon_days
+    else:
+        days_left, horizon = risk["days_to_expiry"], cfg.expiry_horizon_days
+    urgency = _clamp(1 - days_left / horizon)
+
+    loss = _clamp(risk["expected_loss"] / cfg.loss_cap)
+
+    sd, dte = risk["days_of_stock_left"], risk["days_to_expiry"]
+    slowness = 1.0 if (sd is None or dte <= 0) else _clamp((sd / dte - 1) / 3)   # 4x shelf life = fully slow
+
+    score = 100 * (cfg.w_urgency * urgency + cfg.w_loss * loss + cfg.w_slow * slowness)
+    if risk["expired"]:
+        score = max(score, cfg.high_score)       # an expired medicine on the shelf is a patient-safety issue: always on top
+    level = "HIGH" if score >= cfg.high_score else "MEDIUM" if score >= cfg.medium_score else "LOW"
+    return {"score": round(score, 1), "level": level,
+            "parts": {"urgency": round(urgency, 2), "loss": round(loss, 2), "slowness": round(slowness, 2)}}
