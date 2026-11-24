@@ -1,1 +1,1 @@
-"""Optional ML sales forecasting [Member 1]"""
+"""Optional (extra marks): ML / seasonality sales forecasting. Not implemented yet."""

@@ -1,4 +1,37 @@
-name,quantity,expiry_date,company,cost_price
-Napa Extra,40,2027-03-31,ACI,20
-Seclo 20mg,12,2027-01-31,Square,60
-Cough Syrup 100ml,6,2026-12-31,Beximco,85
+name,batch,quantity,expiry_date,company,cost_price,selling_price
+Napa Extra 500mg,B-101,500,2027-03-24,Beximco Pharma,1.2,1.5
+Seclo 20mg,S-220,300,2027-03-02,Square Pharma,5.0,7.0
+Cough Syrup 100ml,C-310,80,2027-01-23,Local Herbal Co,45,60
+Ace 500mg,S-101,800,2027-06-12,Square Pharma,0.9,1.2
+Maxpro 20mg,R-330,250,2027-02-07,Renata,6.0,8.0
+Ciprocin 500mg,S-415,200,2027-03-09,Square Pharma,11,14
+Fexo 120mg,I-210,400,2027-02-22,Incepta,7.5,10
+Alatrol 10mg,S-512,150,2027-01-08,Square Pharma,2.5,3.5
+Zimax 500mg,B-205,120,2027-04-23,Beximco Pharma,38,50
+Rivotril 0.5mg,I-330,60,2027-09-20,Incepta,4,6
+Orsaline-N,R-118,1000,2026-12-14,Renata,1.5,2
+Napa Syrup 60ml,B-107,90,2027-05-23,Beximco Pharma,20,28
+Monas 10mg,S-620,300,2027-04-03,Square Pharma,8,11
+Neotack 40mg,A-410,180,2027-02-17,ACI Ltd,3.2,4.5
+Tofen 1mg,A-111,220,2027-12-29,ACI Ltd,3,4
+Losectil 20mg,I-510,340,2027-02-02,Incepta,5.5,7.5
+Vitamin C 500mg,L-001,700,2027-01-18,Local Herbal Co,2,3
+Calbo-D,R-402,280,2027-04-13,Renata,6,8
+Cef-3 200mg,S-731,160,2027-03-14,Square Pharma,22,30
+Filmet 400mg,B-308,500,2027-02-27,Beximco Pharma,2.5,3.5
+Ranitidine 150mg,A-212,600,2026-12-24,ACI Ltd,1.8,2.5
+Dexpoten 25mg,R-505,140,2027-05-03,Renata,7,9
+Omidon 10mg,I-611,260,2027-01-23,Incepta,2.8,4
+Amodis 400mg,S-808,320,2027-06-22,Square Pharma,3.4,5
+Moxacil 500mg,B-419,90,2027-01-03,Beximco Pharma,9,12
+Herbal Tonic 200ml,L-014,45,2027-02-22,Local Herbal Co,80,110
+Hexisol Gargle,R-077,70,2027-03-24,Renata,55,75
+Zinc Syrup,A-330,110,2027-03-04,ACI Ltd,30,42
+Insulin 70/30,I-901,40,2027-01-28,Incepta,650,780
+ORS Powder,L-020,900,2027-09-20,Local Herbal Co,1.2,2
+Paracetamol 500mg,S-005,1200,2027-07-02,Square Pharma,0.5,0.8
+Antacid Plus,B-512,200,2027-01-13,Beximco Pharma,2.2,3
+Eye Drops,R-250,60,2026-12-29,Renata,40,55
+Bisoprolol 5mg,S-915,180,2027-04-13,Square Pharma,4.5,6
+Cetirizine 10mg,A-099,420,2027-03-14,ACI Ltd,1.1,1.6
+Expired Sample Cream,L-777,12,2026-11-14,Local Herbal Co,60,90

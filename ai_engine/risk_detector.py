@@ -1,14 +1,19 @@
-"""Decide if a medicine needs attention today [Member 1]"""
-from .sales_velocity import days_of_stock_left
+"""Is this medicine going to expire before we sell it?"""
+import math
 
-SAFETY_FACTOR = 0.8      # sells out comfortably before expiry -> no alert
-RETURN_ALERT_DAYS = 14   # alert when return deadline is this close
+# Starting guess: stock must run out within 80% of the remaining shelf life.
+SAFETY_FACTOR = 0.8
 
-def is_risky(quantity, avg_daily_sales, d_expiry, d_return):
-    if d_expiry <= 0:
-        return True                      # already expired / expires today
-    sell_days = days_of_stock_left(quantity, avg_daily_sales)
-    will_sell = sell_days <= d_expiry * SAFETY_FACTOR
-    if will_sell:
-        return False                     # fast seller: skip alert
-    return True
+
+def is_risky(stock_days_left: float, days_to_exp: int, safety: float = SAFETY_FACTOR) -> bool:
+    if days_to_exp <= 0:
+        return True  # already expired
+    return stock_days_left > days_to_exp * safety
+
+
+def risk_level(stock_days_left: float, days_to_exp: int) -> str:
+    if days_to_exp <= 0:
+        return "expired"
+    if math.isinf(stock_days_left) or stock_days_left / days_to_exp >= 2:
+        return "high"
+    return "medium"

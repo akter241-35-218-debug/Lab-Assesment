@@ -1,4 +1,7 @@
-company,return_window_days,discount_allowed,max_discount_pct
-ACI,90,true,20
-Square,60,true,15
-Beximco,0,false,0
+name,return_window_days,discount_allowed,max_discount_pct
+Square Pharma,90,yes,10
+Beximco Pharma,60,yes,15
+Incepta,90,no,
+Renata,no return,yes,20
+ACI Ltd,60,no,
+Local Herbal Co,no return,no,
